@@ -13,4 +13,4 @@ fi
 
 slackUserId=$(curl -s -X POST -H "Authorization: Bearer $SLACK_BOT_TOKEN" https://slack.com/api/users.list | jq -r -c ".members[] | select(.profile.email == \"${emailAddress}\") | .id")
 
-echo "::set-output name=slack-user-id::${slackUserId}"
+echo "slack-user-id=${slackUserId}" >> "$GITHUB_ENV"
